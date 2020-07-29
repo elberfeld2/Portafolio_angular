@@ -1,0 +1,8 @@
+vscode:
+  extensions:
+    - Mikael.Angular-BeastCode@8.1.1:zs+UbkVfAHEN0GF4MPvEKA==
+
+
+tasks:
+  - init: npm install -g @angular/cli
+    command: cd portafolio/ | ng serve -o
