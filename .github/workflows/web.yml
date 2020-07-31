@@ -16,14 +16,18 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Ubicar
+    - name: Mover
       run: cd portafolio
+    - name: Ubicar
+      run: ls -l
     - name: Instalando paquetes
       run: npm install
     - name: Actualizando paquetes
       run: npm update
     - name: Actualizando paquetes
       run: npm run-script build
+    - name: Ubicar
+      run: ls -l
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
