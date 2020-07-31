@@ -1,0 +1,31 @@
+name: Pages
+on:
+  push:
+    branches:
+      - master
+
+jobs:  
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [10.x]
+    steps:
+    - uses: actions/checkout@v1
+    - name: usando Node.js version-${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Ubicar
+      run: cd portafolio
+    - name: Instalando paquetes
+      run: npm install
+    - name: Actualizando paquetes
+      run: npm update
+    - name: Actualizando paquetes
+      run: npm run-script build
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.token }}
+        publish_dir: dist/portafolio
