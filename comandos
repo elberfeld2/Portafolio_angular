@@ -7,3 +7,4 @@ ng new mi-nuevo-proyecto-angular2
 ng serve -o
 
 ng g c nombre
+ng g s nombre
